@@ -723,7 +723,7 @@ body {
 }
 
 .bug-hint-box {
-  min-height: 36px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -734,6 +734,36 @@ body {
   border-radius: 8px;
   border: 1px solid rgba(80, 60, 90, 0.5);
   transition: color 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  padding: 10px 12px;
+}
+
+.bug-hint-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  width: 100%;
+}
+
+.bug-hint-short {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ff2e97;
+  letter-spacing: 0.04em;
+}
+
+.bug-hint-explanation {
+  font-size: 11px;
+  font-weight: 500;
+  color: #e8b8d0;
+  line-height: 1.4;
+  max-width: 100%;
+}
+
+.bug-hint-empty {
+  color: #555;
 }
 
 .bug-hint-box.bug-hint-visible {
@@ -741,6 +771,96 @@ body {
   background: rgba(40, 8, 28, 0.95);
   border-color: rgba(255, 46, 151, 0.6);
   box-shadow: 0 0 20px rgba(255, 46, 151, 0.35);
+}
+
+.bug-hint-box.bug-hint-visible .bug-hint-short {
+  color: #ff5bab;
+}
+
+.bug-hint-box.bug-hint-visible .bug-hint-explanation {
+  color: #f0d0e0;
+}
+
+/* Reflex game feedback and combo */
+.reflex-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  animation: reflex-feedback-in 0.25s ease;
+}
+
+@keyframes reflex-feedback-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reflex-feedback-correct {
+  background: rgba(0, 255, 208, 0.12);
+  border: 1px solid rgba(0, 255, 208, 0.5);
+  color: #00ffd0;
+}
+
+.reflex-feedback-early {
+  background: rgba(255, 140, 60, 0.12);
+  border: 1px solid rgba(255, 140, 60, 0.5);
+  color: #ffb366;
+}
+
+.reflex-feedback-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.reflex-feedback-icon-early {
+  color: #ff8a3d;
+}
+
+.reflex-combo {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.95;
+}
+
+.mini-game-combo .value-combo {
+  color: #00ffd0;
+}
+
+.reflex-bug-button {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.reflex-bug-button:active {
+  transform: scale(0.98);
+}
+
+.reflex-bug-correct {
+  box-shadow: 0 0 20px rgba(0, 255, 208, 0.4);
+}
+
+.reflex-bug-early {
+  animation: reflex-shake 0.4s ease;
+}
+
+@keyframes reflex-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
 }
 
 .mini-game-grid {
